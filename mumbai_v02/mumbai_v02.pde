@@ -5,14 +5,15 @@ import toxi.util.datatypes.*;
 
 /*
 float w = 300;
-float wThird = w/3;
-float wHalf = w/2;
-float h = 400;
-float hHalf = h/2;
-float hThird = h/3;
-*/
+ float wThird = w/3;
+ float wHalf = w/2;
+ float h = 400;
+ float hHalf = h/2;
+ float hThird = h/3;
+ */
 
 float w = 300;
+float wQtr = w/4;
 float wThird = w/3;
 float wHalf = w/2;
 float h = 300;
@@ -32,7 +33,7 @@ float randomBright = random(0, 2);
 
 void setup() {
 
-  size (1500, 900);
+  size (1700, 900);
   //beginRecord(PDF, "newGrab81.pdf"); 
   colorMode(HSB, 1, 1, 1, 1);
 
@@ -53,13 +54,21 @@ void setup() {
   stroke(black.hue(), black.saturation(), black.brightness());
   strokeWeight(2);
   noFill();
-
+  strokeCap(SQUARE);
   //M1
+  /*
+  for (int x1 = 0; x1 <= wHalf+wQtr; x1 = x1 + 10) {
+   line(wHalf/2, 0, x1, h);
+   }
+   for (int x2 = 75; x2 <= w; x2 = x2 + 10) {
+   line(wHalf+wHalf/2, 0, x2, h);
+   }
+   */
   for (int x1 = 0; x1 <= wThird*2; x1 = x1 + 10) {
-    line(wHalf/2, 0, x1, h);
+    line(wThird, 0, x1, h);
   }
   for (int x2 = 100; x2 <= w; x2 = x2 + 10) {
-    line(wHalf+wHalf/2, 0, x2, h);
+    line(wThird*2, 0, x2, h);
   }
 
 
@@ -68,36 +77,69 @@ void setup() {
   //U
   pushMatrix();
   translate(w, 0);
-  fill(black.hue(), black.saturation(), black.brightness());
-  rect(0, 0, wThird, h);
-  rect(0, hThird*2, w, hThird);
-  rect(wThird*2, 0, wThird, h);
+  for (float y1 = 1; y1 <= h; y1 = y1 + y1/20) {
+    line(0, y1, w, y1);
+  }
+  line(0, h, w, h);
+  /*
+  for (int y1 = 0; y1 <= h; y1 = y1 +10) {
+   line(0, y1, w, y1);
+   }
+   */
+  noStroke();
+  fill(white.hue(), white.saturation(), white.brightness());
+  rect(wThird, -1, wThird, hThird*2);
 
-
+  /*
+   fill(black.hue(), black.saturation(), black.brightness());
+   rect(0, 0, wThird, h);
+   rect(0, hThird*2, w, hThird);
+   rect(wThird*2, 0, wThird, h);
+   */
 
   popMatrix();
 
   //M2
+
+  stroke(black.hue(), black.saturation(), black.brightness());
+  strokeWeight(2);
+  noFill();
+
   pushMatrix();
   translate(w*2, 0);
   for (int x1 = 0; x1 <= wThird*2; x1 = x1 + 10) {
-    line(wHalf/2, 0, x1, h);
+    line(wThird, 0, x1, h);
   }
   for (int x2 = 100; x2 <= w; x2 = x2 + 10) {
-    line(wHalf+wHalf/2, 0, x2, h);
+    line(wThird*2, 0, x2, h);
   }
   popMatrix();
 
   //B
   pushMatrix();
   translate(w*3, 0);
-  fill(black.hue(), black.saturation(), black.brightness());
-  rect(0, 0, wThird, h);
-  rect(0, hThird*2, w, hThird);
-  rect(wThird*2, 0, wThird, h);
+  for (float y1 = 1; y1 <= h; y1 = y1 + y1/20) {
+    line(0, y1, w, y1);
+  }
+  line(0, h, w, h);
+  noStroke();
+  fill(white.hue(), white.saturation(), white.brightness());
+  triangle(wThird*2, 0, w+1, 0, w+1, hThird);
+  rect(wThird, h/6, wQtr, h/4);
+  rect(wThird, h*5/8, wQtr, h/4);
+  popMatrix();
+  
+    //A
 
+  stroke(black.hue(), black.saturation(), black.brightness());
+  strokeWeight(2);
+  noFill();
 
-
+  pushMatrix();
+  translate(w*4, 0);
+  for (int aX = 0; aX <= w; aX = aX + 10) {
+    line(wHalf, 0, aX, h);
+  }
   popMatrix();
 
   //stroke(black.hue(), black.saturation(), black.brightness());
