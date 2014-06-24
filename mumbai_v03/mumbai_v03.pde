@@ -34,7 +34,7 @@ float randomBright = random(0, 2);
 void setup() {
 
   size (1700, 900);
-  //beginRecord(PDF, "newGrab81.pdf"); 
+  beginRecord(PDF, "mumbai01.pdf"); 
   colorMode(HSB, 1, 1, 1, 1);
 
   //color palette
@@ -44,8 +44,8 @@ void setup() {
   smooth();
   background(white.hue(), white.saturation(), white.brightness());
   //background(black.hue(), black.saturation(), black.brightness());
-  //translate(100, 200);
-  translate(0, 200);
+  translate(50, 250);
+  //translate(0, 200);
 
 
 
@@ -128,8 +128,8 @@ void setup() {
   rect(wThird, h/6, wQtr, h/4);
   rect(wThird, h*5/8, wQtr, h/4);
   popMatrix();
-  
-    //A
+
+  //A
 
   stroke(black.hue(), black.saturation(), black.brightness());
   strokeWeight(2);
@@ -141,8 +141,8 @@ void setup() {
     line(wHalf, 0, aX, h);
   }
   popMatrix();
-  
-    //I
+
+  //I
   pushMatrix();
   translate(w*5, 0);
   for (float y1 = 1; y1 <= h; y1 = y1 + y1/20) {
@@ -151,7 +151,7 @@ void setup() {
   line(0, h-1, w/3, h-1);
   noStroke();
   fill(white.hue(), white.saturation(), white.brightness());
-//  rect(wThird, h*5/8, wQtr, h/4);
+  //  rect(wThird, h*5/8, wQtr, h/4);
   popMatrix();
 
   //stroke(black.hue(), black.saturation(), black.brightness());
@@ -187,6 +187,8 @@ void outline() {
   triangle(0, hThird, w, hThird*2, w, h); //mid-bottom
   triangle(w, hThird*2, w, h, 0, h); //bottom-right
   popMatrix();
+  
+  endRecord();
 }
 
 void whiteMatte() {
